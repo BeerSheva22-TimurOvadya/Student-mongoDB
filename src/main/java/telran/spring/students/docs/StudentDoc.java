@@ -2,7 +2,10 @@ package telran.spring.students.docs;
 
 import java.util.*;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 import lombok.Data;
 import lombok.NonNull;
@@ -14,15 +17,26 @@ import telran.spring.students.dto.Student;
 
 public class StudentDoc {
 
+	public StudentDoc(long id, String name, String phone, List<Mark> marks) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.phone = phone;
+		this.marks = marks;
+	}
+	
 	final long id;
-	@NonNull
+	
 	String name;
-	@NonNull
+	
 	String phone;
+	
 	List<Mark> marks = new ArrayList<>();
+	
+	
 
 	public static StudentDoc of(Student student) {
-		return new StudentDoc(student.id(), student.name(), student.phone());
+		return new StudentDoc(student.id(), student.name(), student.phone(), null);
 	}
 
 	public Student build() {
