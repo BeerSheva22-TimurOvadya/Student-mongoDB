@@ -14,8 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static telran.spring.students.TestDbCreation.*;
 
 import telran.spring.students.docs.StudentDoc;
+import telran.spring.students.dto.IdName;
 import telran.spring.students.dto.Mark;
 import telran.spring.students.dto.SubjectMark;
+import telran.spring.students.repo.StudentRepository;
 import telran.spring.students.service.StudentsService;
 
 @SpringBootTest
@@ -26,6 +28,10 @@ class StudentsServiceTests{
 
 	@Autowired
 	TestDbCreation testDbCreation;
+	
+	@Autowired
+	StudentRepository studentRepo;
+	
 	@BeforeEach
 	void setUp() {
 		testDbCreation.createDb();
@@ -66,5 +72,30 @@ class StudentsServiceTests{
 		students.forEach(s -> assertTrue(s.getPhone().startsWith("050")));
 		
 	}
+	
+	@Test
+	void studentsAllMarksGreaterTest() {
+		List<IdName> students = studentsService.getStudentsAllScoresGreater(70);
+		assertEquals(2, students.size());
+		
+		IdName studentDocId3 = students.get(0);		
+		assertEquals(ID3, studentDocId3.getId());
+		assertEquals("name3", studentDocId3.getName());
+		
+		IdName studentDocId5 = students.get(1);				
+		assertEquals(ID5, studentDocId5.getId());
+		assertEquals("name5", studentDocId5.getName());			
+	}
+	
+	@Test
+	void studentsFewMarksTest() {
+		List<Long> ids = studentsService.removeStudentsWithFewMarks(2);
+		assertEquals(2, ids.size());
+		assertEquals(ID4, ids.get(0));
+		assertEquals(ID6, ids.get(1));
+		assertNull(studentRepo.findById(ID4).orElse(null));
+		assertNull(studentRepo.findById(ID6).orElse(null));
+		
+	}	
 
 }

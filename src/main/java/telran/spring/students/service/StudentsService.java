@@ -16,4 +16,9 @@ public interface StudentsService {
 	List<Mark> getMarksStudentDates(long studentId, LocalDate date1, LocalDate date2);
 	
 	List<StudentDoc> getStudentsPhonePrefix(String phonePrefix);
+	
+	List<IdName> getStudentsAllScoresGreater(int score);
+	
+	List<Long> removeStudentsWithFewMarks(int nMarks);
+	
 }

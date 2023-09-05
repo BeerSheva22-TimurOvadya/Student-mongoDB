@@ -55,33 +55,33 @@ public class TestDbCreation {
 	};
 	
 	Mark[][] marks = {
-			{
+			{//ID1
 				new Mark(SUBJECT1, DATE1, 80),
 				new Mark(SUBJECT1, DATE1, 90),
 				new Mark(SUBJECT2, DATE2, 70),
 				new Mark(SUBJECT3, DATE3, 90),				
 			},
-			{
+			{//ID2
 				new Mark(SUBJECT1, DATE1, 70),
 				new Mark(SUBJECT2, DATE2, 80),
 							
 			},
-			{
+			{//ID3
 				new Mark(SUBJECT1, DATE1, 80),
-				new Mark(SUBJECT2, DATE2, 70),
+				new Mark(SUBJECT2, DATE2, 75),
 				new Mark(SUBJECT3, DATE3, 90),
 				new Mark(SUBJECT4, DATE4, 100)
 			},
-			{
+			{//ID4
 				new Mark(SUBJECT4, DATE4, 70),
 								
 			},
-			{
+			{//ID5
 				new Mark(SUBJECT1, DATE1, 80),
-				new Mark(SUBJECT2, DATE2, 70),
+				new Mark(SUBJECT2, DATE2, 71),
 				new Mark(SUBJECT3, DATE3, 90),				
 			},
-			{
+			{//ID6
 							
 			}
 	};
