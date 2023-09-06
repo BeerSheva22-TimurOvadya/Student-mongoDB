@@ -39,8 +39,8 @@ public class RandomDBCreation {
 	@PostConstruct
 	void createDb() {
 		if(creationEnable) {
-			IntStream.rangeClosed(1, nStudents).mapToObj(this::getStudent)
-			.forEach(studentRepo::save);
+			List<StudentDoc> list = IntStream.rangeClosed(1, nStudents).mapToObj(this::getStudent).toList();
+			studentRepo.saveAll(list);
 		}
 	}
 	StudentDoc getStudent(int id) {
