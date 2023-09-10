@@ -1,5 +1,12 @@
-{"properties": [{
-  "name": "app.random.creation.enable",
-  "type": "java.lang.String",
-  "description": "Enabled a DB creation"
-}]}
+{"properties": [
+  {
+    "name": "app.random.creation.enable",
+    "type": "java.lang.String",
+    "description": "Enabled a DB creation"
+  },
+  {
+    "name": "app.students.mark.good",
+    "type": "java.lang.String",
+    "description": "A description for 'app.students.mark.good'"
+  }
+]}

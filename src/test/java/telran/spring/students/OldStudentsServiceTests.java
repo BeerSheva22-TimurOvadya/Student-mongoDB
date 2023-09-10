@@ -24,7 +24,7 @@ class OldStudentsServiceTests {
 	StudentRepository studentRepo;
 
 	Student student1 = new Student(123l, "Vasya", "050-1234567");
-	Mark mark = new Mark("Java", LocalDate.now(), 90);
+	Mark mark = new Mark("Java", LocalDate.now(), 90);	
 
 	@Test
 	@Order(1)
